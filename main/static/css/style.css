@@ -1,0 +1,112 @@
+.wrapper {
+            width: 1000px;
+            margin: 0, auto;
+
+        }
+.wrapper .head {
+    width: 100%;
+    height: 40px;
+    background: #eee;
+
+    }
+.wrapper .body {
+    width: 100%;
+    min-height: 600px;
+    background: #ccc;
+    font-size: 0;
+    }
+.wrapper .body ul {
+    font-size: 14px;
+    }
+.wrapper .body .left {
+    width: 300px;
+    min-height: 600px;
+    background: yellow;
+    display: inline-block;
+    vertical-align: top;
+
+    }
+.wrapper .body .main {
+    width: 660px;
+    margin-left: 40px;
+    min-height: 600px;
+    background: green;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0;
+    }
+.wrapper .body .main .item {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    background: red;
+    width: 80px;
+    min-height: 100px;
+    text-decoration: none;
+    }
+.wrapper .body .main .item img {
+    display: block;
+    }
+
+.wrapper .body .main .item span {
+    color: #fff;
+    }
+.wrapper .body .main .item .title {
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    }
+.wrapper .body .main .item .price {
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    }
+.wrapper .body .item .buy {
+    margin-top: 5px;
+    display: block;
+    font-size: 14px;
+    color: #000;
+        }
+.wrapper .body .item .price {
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    }
+
+.wrapper .body .item .full {
+    max-width: 600px;
+    height: auto;
+    }
+
+.cart {
+    background: #e5e5e5;
+    font-size: 14px;
+    border:1px solid #000;
+    position: fixed;
+    top:50%;
+    right:0;
+
+    }
+.cart .oformit, .cart .summa {
+    display: block;
+}
+.cart .summa:after{
+    content: 'руб';
+    margin-left: 5px;
+}
+.korzina .row{
+    display: block;
+    width: 100%;
+}
+.korzina .row img, .korzina .row .name, .korzina .row .price, .korzina .row .delete {
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+    font-size: 14px;
+}
+.korzina .row .delete{
+    width: 10px;
+    text-decoration: underline;
+    color:blue;
+    cursor:pointer;
+}
