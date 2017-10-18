@@ -1,32 +1,59 @@
-
 <!DOCTYPE html>
 {% load staticfiles %}
+
+
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
-    <title>Catalog</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>onlineStore</title>
+    <!-- BootStrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="head"><h1> {{category.name}}</h1> </div>>
-        <div class="body">
-            <div class="left"> </div>
-            <div class="main">
-                {% for tovar in tovars %}
-                <a class="item" href="/item/{{tovar.alias}}/">
-                    <img src="{{tovar.image}}" width="80" height="100" alt="">
-                    <span class="title">{{tovar.name}}</span>
-                    <span class="price">{{tovar.price}} руб</span>
+    <div class="container">
+        <div class="row">
+            <h1> {{sitename}}</h1>
+            <div class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="collapse navbar-collapse" id="responsive-menu">
+                        <ul class="nav navbar-nav">
+                            {% for category in categories %}
+                            <li><a href="/cat/{{category.alias}}/">{{category.name}}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
 
-                </a>
-                {% endfor %}
             </div>
-            
-        </div>>
-    </div>
+            <div class="center">
+                <h2>{{category.name}}</h2>
+                <div class="row">
+                {% for tovar in tovars %}
 
+                    <div class="col-sm-3">
+                        <a href="/item/{{tovar.alias}}/">
+                            <div class="caption"><h3>{{tovar.name}}</h3></div>
+                            <img src="{{tovar.image}}" width="200" height="100">
+
+                            <div class="caption"><h4>{{tovar.price}}</h4></div>
+
+                        </a>
+                    </div>
+
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.js"></script>
 
 
 </body>

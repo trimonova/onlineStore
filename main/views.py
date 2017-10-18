@@ -40,18 +40,20 @@ def item(request, alias):
 def get_category(request, alias):
     try:
         category = Category.objects.get(alias=alias)
+        categories = Category.objects.all()
         tovars = Item.objects.filter(category=category)
     except:
         raise Http404('Страница не найдена')
     context = {
-
+        'sitename': 'Интернет-магазин',
         'tovars': tovars,
         'category': category,
+        'categories': categories,
     }
     return HttpResponse(render_to_string('index.html', context))
 
 def get_brend(request, alias):
-    category = Category.objects.all()
+    categories = Category.objects.all()
 
     try:
 
@@ -62,7 +64,7 @@ def get_brend(request, alias):
 
     context = {
         'sitename': 'Интернет-магазин',
-        'categories': category,
+        'categories': categories,
         'tovars': tovars,
         'brend': brend,
     }
