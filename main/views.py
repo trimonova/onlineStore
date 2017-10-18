@@ -50,6 +50,24 @@ def get_category(request, alias):
     }
     return HttpResponse(render_to_string('index.html', context))
 
+def get_brend(request, alias):
+    category = Category.objects.all()
+
+    try:
+
+        brend = Brend.objects.get(alias=alias)
+        tovars = Item.objects.filter(brend=brend)
+    except:
+        raise Http404('Страница не найдена')
+
+    context = {
+        'sitename': 'Интернет-магазин',
+        'categories': category,
+        'tovars': tovars,
+        'brend': brend,
+    }
+    return HttpResponse(render_to_string('brend.html', context))
+
 def order(request):
 
     context = {
