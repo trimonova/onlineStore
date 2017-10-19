@@ -14,7 +14,7 @@ import string
 #        'title': 'Helloworld',
 #        'tovars': tovars
 #    }
-#    return HttpResponse(render_to_string('index.html', context))
+#    return HttpResponse(render_to_string('category.html', context))
 
 def home(request):
     category = Category.objects.all()
@@ -28,12 +28,14 @@ def home(request):
 
 def item(request, alias):
     try:
+        categories = Category.objects.all()
         tovar = Item.objects.get(alias=alias)
     except:
         raise Http404('Страница не найдена')
     context = {
-
-        'tovar': tovar
+        'sitename': 'Интернет-магазин',
+        'tovar': tovar,
+        'categories': categories,
     }
     return HttpResponse(render_to_string('item.html', context))
 
@@ -50,7 +52,7 @@ def get_category(request, alias):
         'category': category,
         'categories': categories,
     }
-    return HttpResponse(render_to_string('index.html', context))
+    return HttpResponse(render_to_string('category.html', context))
 
 def get_brend(request, alias):
     categories = Category.objects.all()
@@ -73,6 +75,19 @@ def get_brend(request, alias):
 def order(request):
 
     context = {
+    }
+    return HttpResponse(render_to_string('order.html', context))
+
+
+def cart(request):
+
+    try:
+        categories = Category.objects.all()
+    except:
+        raise Http404('Страница не найдена')
+    context = {
+        'sitename': 'Интернет-магазин',
+        'categories': categories,
     }
     return HttpResponse(render_to_string('korzina.html', context))
 

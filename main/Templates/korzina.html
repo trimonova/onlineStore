@@ -1,25 +1,14 @@
 
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Order-page</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="{% static 'jquery.cookie.js' %}"></script>
-</head>
-<body>
+{% extends 'base.html' %}
 
+{% block content %}
     <div class="wrapper">
-        <div class="head"><h1>Ваша корзина</h1> </div>
+        <div class="head"><h2>Ваша корзина</h2> </div>
         <div class="korzina">
 
         </div>
-        <div class="total">Сумма вашего заказа: <span class="summa">0</span> руб. </div>
-        Ваше имя: <input name="name" placeholder="Иванов Иван">
-        Ваше телефон: <input name="phone" placeholder="89163748739">
-        <a href="#" class="zakaz">Оформить заказ</a>
+        <div class="total">Сумма вашего заказа: <span class="summa">0</span> руб. <a href="/order/"> Оформить заказ</a> </div>
+
     </div>
     <script type="text/javascript">
         $(function(){
@@ -30,7 +19,7 @@
                 var json2 = $.parseJSON(arr1);
                 var summa1 = 0;
                 $.each(json2, function(index, value) {
-                    $('.korzina').append('<div class="row"> <div class="id" style="display:none">'+index+'</div><img src="'+value["img"]+'"><div class="name">'+value["name"]+'</div> <div class="price"> '+value["price"]+'</div> <div class="delete">X</div></div>');
+                    $('.korzina').append('<div class="row"> <div class="id" style="display:none">'+index+'</div><img src="'+value["img"]+'"><div class="name">'+value["name"]+'</div> <div class="price"> '+value["price"]+'</div> <div class="delete">Удалить</div></div>');
                     summa1 = summa1 + parseInt(value['price']);
                 });
                 $('.total .summa').text(summa1);
@@ -65,6 +54,5 @@
 
     </script>
 
+{% endblock %}
 
-</body>
-</html>

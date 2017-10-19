@@ -1,59 +1,22 @@
-<!DOCTYPE html>
-{% load staticfiles %}
+{% extends 'base.html' %}
 
+{% block content %}
+<div class="center">
+    <h2>Бренды</h2>
+    <div class="row">
+    {% for brend in brends %}
 
-<html lang="en">
-<head>
+        <div class="col-sm-3">
+            <a href="/brend/{{brend.alias}}/">
+            <img src="{{brend.image}}" width=auto height="100">
 
+            <div class="caption"><h3>{{brend.name}}</h3></div>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>onlineStore</title>
-    <!-- BootStrap -->
-    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-</head>
-<body>
-
-    <div class="container">
-        <div class="row">
-            <h1> {{sitename}}</h1>
-            <div class="navbar navbar-inverse">
-                <div class="container">
-                    <div class="collapse navbar-collapse" id="responsive-menu">
-                        <ul class="nav navbar-nav">
-                            {% for category in categories %}
-                            <li><a href="/cat/{{category.alias}}/">{{category.name}}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-            <div class="center">
-                <h2>Бренды</h2>
-                <div class="row">
-                {% for brend in brends %}
-
-                    <div class="col-sm-3">
-                        <a href="/brend/{{brend.alias}}/">
-                        <img src="{{brend.image}}" width="200" height="100">
-
-                        <div class="caption"><h3>{{brend.name}}</h3></div>
-
-                        </a>
-                    </div>
-
-                {% endfor %}
-                </div>
-            </div>
+            </a>
         </div>
+
+    {% endfor %}
     </div>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="static/bootstrap/js/bootstrap.js"></script>
+</div>
 
-
-</body>
-</html>
+{% endblock %}

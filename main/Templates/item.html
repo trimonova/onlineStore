@@ -1,65 +1,24 @@
 
-<!DOCTYPE html>
-{% load staticfiles %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Catalog</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="{% static 'jquery.cookie.js' %}"></script>
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="wrapper">
-        <div class="head"><h1> {{tovar.name}}</h1> </div>>
+{% block content %}
+
+    <div class="center">
+        <div class="head"><h2> {{tovar.name}}</h2> </div>
+
         <div class="body">
             <div class="item">
-                <img class="full" src="{{tovar.image}}" alt="">
-                <span class="price"><span class="value">{{tovar.price}}</span> Руб</span>
-                <a href="#" class="buy">Купить</a>
+                <div class="col-sm-5">
+                <img class="full" src="{{tovar.image}}" alt="" width="300px">
+                </div>
+                <div class="col-sm-7">
+                <span class="price"><span class="value">{{tovar.price}}</span> руб</span>
+                <div><a href="#" class="buy">Добавить в корзину</a></div>
+                </div>
             </div>
 
 
-        </div>>
+        </div>
     </div>
-    <div class="cart">В корзине товаров на <span class="summa">0</span>
-        <a class="oformit" href="/order/">Оформить заказ</a></div>
-    <script>
-        $(function(){
-                var arr1 = $.cookie('cart');
-                if(!arr1){
-                    arr1 = '[]';
-                }
-                var json2 = $.parseJSON(arr1);
-                var summa1 = 0;
-                $.each(json2, function(index, value) {
-                    summa1 = summa1 + parseInt(value['price']);
-                });
-                $('.cart .summa').text(summa1);
 
-            $(".buy").click(function(){
-                var arr = $.cookie('cart');
-                if(!arr){
-                    arr = '[]';
-                }
-                var json = $.parseJSON(arr);
-                json.push({
-                    'name':$('h1').text(),
-                    'price':$('span.value').text(),
-                    'img':$('img.full').attr('src'),
-                });
-                $.cookie('cart', JSON.stringify(json), {path:'/'});
-                var summa = 0;
-                $.each(json, function(index, value) {
-                    summa = summa + parseInt(value['price']);
-                });
-                $('.cart .summa').text(summa);
-
-            });
-        });
-    </script>
-
-
-</body>
-</html>
+{% endblock %}

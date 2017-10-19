@@ -6,7 +6,7 @@
 .wrapper .head {
     width: 100%;
     height: 40px;
-    background: #eee;
+
 
     }
 .wrapper .body {
@@ -79,20 +79,30 @@
     }
 
 .cart {
-    background: #e5e5e5;
-    font-size: 14px;
-    border:1px solid #000;
-    position: fixed;
-    top:50%;
-    right:0;
+
+    font-size: 20px;
+    color: #9d9d9d;
+    float: right;
+    display: inline;
+    height: 50px;
+    vertical-align: center;
 
     }
-.cart .oformit, .cart .summa {
-    display: block;
+
+.cart:hover {
+    color: white;
+}
+
+.cart .summa {
+    display: inline-block;
+
+    margin-left: 20px;
+    margin-top: 11px;
 }
 .cart .summa:after{
     content: 'руб';
     margin-left: 5px;
+
 }
 .korzina .row{
     display: block;
@@ -100,13 +110,27 @@
 }
 .korzina .row img, .korzina .row .name, .korzina .row .price, .korzina .row .delete {
     display: inline-block;
-    vertical-align: top;
+    vertical-align: center;
     width: 30%;
-    font-size: 14px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-right: 20px;
+
 }
 .korzina .row .delete{
     width: 10px;
     text-decoration: underline;
-    color:blue;
+
     cursor:pointer;
+}
+
+.item .price {
+font-size: 30px;
+}
+.item .buy {
+font-size: 20px;
+}
+.wrapper .total {
+    font-size: 30px;
+    margin-top: 50px;
 }
